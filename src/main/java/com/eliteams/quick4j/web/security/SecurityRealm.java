@@ -69,7 +69,9 @@ public class SecurityRealm extends AuthorizingRealm {
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
         String username = String.valueOf(token.getPrincipal());
         String password = new String((char[]) token.getCredentials());
-        User user = new User(username, password);
+        User user = new User();
+        user.setUsername(username);
+        user.setPassword(password);
         // 通过数据库进行验证
         final User authentication = userService.authentication(user);
         if (authentication == null) {
