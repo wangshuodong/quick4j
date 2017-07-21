@@ -23,7 +23,7 @@ public class UserServiceTest extends TestSupport {
         userService.insert(model);
     }
 
-//    @Test
+    @Test
     public void test_10insert() {
         for (int i = 0; i < 10; i++) {
             User model = new User();

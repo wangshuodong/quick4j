@@ -22,6 +22,7 @@ public class UserMapperTest extends TestSupport {
         example.createCriteria().andIdGreaterThan(0L);
         final List<User> users = userMapper.selectByExampleAndPage(page, example);
         for (User user : users) {
+            System.err.println("-------------------------wangshuodong-----------------------");
             System.err.println(user);
         }
         end();
