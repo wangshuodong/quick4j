@@ -68,8 +68,14 @@
 
     <!-- mybatis文件配置，扫描所有mapper文件 -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean" p:dataSource-ref="dataSource"
-          p:configLocation="classpath:mybatis-config.xml"
-          p:mapperLocations="classpath:com/eliteams/quick4j/web/dao/*.xml"/>
+          p:configLocation="classpath:mybatis-config.xml">
+        <property name="mapperLocations">
+            <list>
+                <value>classpath:com/eliteams/quick4j/web/mapping/*.xml</value>
+                <value>classpath:com/eliteams/quick4j/web/mappingCustom/*.xml</value>
+            </list>
+        </property>
+    </bean>
 
     <!-- spring与mybatis整合配置，扫描所有dao -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer" p:basePackage="com.eliteams.quick4j.web.dao"

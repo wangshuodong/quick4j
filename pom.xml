@@ -6,7 +6,7 @@
     <packaging>war</packaging>
     <version>1.0.0</version>
     <name>quick4j App</name>
-    <url>https://github.com/starzou/quick4j</url>
+    <url>https://github.com/Eliteams/quick4j.git</url>
 
     <build>
         <finalName>quick4j</finalName>

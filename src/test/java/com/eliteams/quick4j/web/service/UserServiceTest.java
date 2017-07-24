@@ -1,18 +1,35 @@
-package com.eliteams.quick4j.test.service;
+package com.eliteams.quick4j.web.service;
 
 import com.eliteams.quick4j.core.feature.test.TestSupport;
 import com.eliteams.quick4j.core.util.ApplicationUtils;
+import com.eliteams.quick4j.web.dao.UserMapper;
 import com.eliteams.quick4j.web.model.User;
-import com.eliteams.quick4j.web.service.UserService;
+import com.eliteams.quick4j.web.model.UserExample;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.annotation.Resource;
 import java.util.Date;
 
+/**
+ * Created by Administrator on 2017/7/22.
+ */
 public class UserServiceTest extends TestSupport {
-
     @Resource
     private UserService userService;
+    @Autowired
+    private UserMapper userMapper;
+
+    @Test
+    public void authentication() throws Exception {
+
+    }
+
+    @Test
+    public void selectByUsername() throws Exception {
+        UserExample example = new UserExample();
+        userMapper.selectByExample(example);
+    }
 
     @Test
     public void test_insert() {
