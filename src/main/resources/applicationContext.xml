@@ -24,10 +24,17 @@
     <context:component-scan base-package="com.eliteams.quick4j"></context:component-scan>
 
     <!-- 引入配置文件 -->
+    <!--<context:property-placeholder location="classpath*:config.properties" />-->
+    <!--
+        使用这种方式引入属性文件，可以在catalina.sh里面配置环境变量：
+        JAVA_OPTS="$JAVA_OPTS -Djsuws.config.path=/home/app/jsuws/application.properties -Dlogback.configurationFile=/home/app/jsuws/logback.xm"
+        可以使用工程以外的properties
+     -->
     <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="locations">
             <list>
                 <value>classpath*:application.properties</value>
+                <!--<value>file:${jsuws.config.path}</value>-->
             </list>
         </property>
     </bean>
@@ -59,10 +66,19 @@
         <property name="testOnReturn" value="false"/>
 
         <!-- 打开PSCache，并且指定每个连接上PSCache的大小 -->
+        <!-- 是否缓存preparedStatement，也就是PSCache。
+            PSCache对支持游标的数据库性能提升巨大，比如说oracle。
+            在mysql5.5以下的版本中没有PSCache功能，建议关闭掉。
+            作者在5.5版本中使用PSCache，通过监控界面发现PSCache有缓存命中率记录，  -->
         <property name="poolPreparedStatements" value="false"/>
+        <!-- 要启用PSCache，必须配置大于0，当大于0时，
+            poolPreparedStatements自动触发修改为true。
+            在Druid中，不会存在Oracle下PSCache占用内存过多的问题，
+            可以把这个数值配置大一些，比如说100 -->
         <property name="maxPoolPreparedStatementPerConnectionSize" value="20"/>
 
         <!-- 配置监控统计拦截的filters -->
+        <!-- 监控数据库 监控统计用的filter:stat 日志用的filter:log4j 防御sql注入的filter:wall-->
         <property name="filters" value="stat"/>
     </bean>
 
