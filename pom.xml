@@ -12,16 +12,16 @@
         <finalName>quick4j</finalName>
         <plugins>
             <!-- Mybatis generator代码生成插件 配置 -->
-            <!--<plugin>-->
-                <!--<groupId>org.mybatis.generator</groupId>-->
-                <!--<artifactId>mybatis-generator-maven-plugin</artifactId>-->
-                <!--<version>${plugin.mybatis.generator}</version>-->
-                <!--<configuration>-->
-                    <!--<configurationFile>${mybatis.generator.generatorConfig.xml}</configurationFile>-->
-                    <!--<overwrite>true</overwrite>-->
-                    <!--<verbose>true</verbose>-->
-                <!--</configuration>-->
-            <!--</plugin>-->
+            <plugin>
+                <groupId>org.mybatis.generator</groupId>
+                <artifactId>mybatis-generator-maven-plugin</artifactId>
+                <version>${plugin.mybatis.generator}</version>
+                <configuration>
+                    <configurationFile>${mybatis.generator.generatorConfig.xml}</configurationFile>
+                    <overwrite>true</overwrite>
+                    <verbose>true</verbose>
+                </configuration>
+            </plugin>
 
             <!-- Maven插件 配置 -->
             <plugin>
@@ -200,11 +200,23 @@
             <version>${druid.version}</version>
         </dependency>
 
-        <!-- jackson -->
+        <!-- jackson是spring mvc内置的json转换工具 -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
             <version>${jackson.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.1.26</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.8.0</version>
         </dependency>
 
         <!-- log start -->
@@ -343,12 +355,12 @@
 
         <!-- 本地安装的jar包 -->
         <!-- mvn install:install-file -Dfile=E:/IdeaProjects_wsd/gasinternet/src/main/webapp/WEB-INF/lib/mybatis-generator-core-1.3.2.jar -DgroupId=com.mybatis -DartifactId=mybatis-generator -Dversion=1.3.2 -Dpackaging=jar -DgeneratePom=true  -->
-        <!--<dependency>
+        <dependency>
             <groupId>com.mybatis</groupId>
             <artifactId>mybatis-generator</artifactId>
             <version>1.3.2</version>
             <scope>provided</scope>
-        </dependency>-->
+        </dependency>
 
         <dependency>
             <groupId>redis.clients</groupId>
