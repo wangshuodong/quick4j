@@ -5,7 +5,7 @@
     <div class="page-header-inner ">
         <!-- BEGIN LOGO -->
         <div class="page-logo">
-            <a href="index.jsp">
+            <a href="../index.jsp">
                 <img src="../assets/layouts/layout/img/logo.png" alt="logo" class="logo-default"/>
             </a>
             <div class="menu-toggler sidebar-toggler">
