@@ -33,6 +33,4 @@
 <script src="/assets/layouts/layout/scripts/demo.min.js" type="text/javascript"></script>
 <script src="/assets/layouts/global/scripts/quick-sidebar.min.js" type="text/javascript"></script>
 <!-- END THEME LAYOUT SCRIPTS -->
-<!-- BEGIN PAGE LEVEL SCRIPTS -->
-<script src="/assets/pages/scripts/dashboard.min.js" type="text/javascript"></script>
-<!-- END PAGE LEVEL SCRIPTS -->
+
