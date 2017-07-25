@@ -1,19 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ include file="shared/taglib.jsp"%>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+    System.out.println(basePath);
+%>
 <!DOCTYPE html>
 
-<html>
-
-<!--[if IE 8]>
-<html lang="en" class="ie8 no-js"> <![endif]-->
-<!--[if IE 9]>
-<html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
 <!--[if !IE]><!-->
 <html lang="en">
 <!--<![endif]-->
 <!-- BEGIN HEAD -->
+
 <head>
-    <base href="${pageContext.request.contextPath}">
+    <base href="<%=basePath%>">
     <meta charset="utf-8"/>
     <title>Metronic | Help</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -47,9 +49,29 @@ page-container-bg-solid 背景颜色
         <%@ include file="shared/menu_sidebar.jsp"%>
         <!-- END SIDEBAR 侧边栏包含快速搜索和主要的导航菜单。-->
 
+        <!-- BEGIN CONTENT -->
+        <div class="page-content-wrapper">
+            <!-- BEGIN CONTENT BODY -->
+            <div class="page-content">
+                <!-- BEGIN PAGE HEADER-->
+                <!-- BEGIN PAGE TITLE-->
+                <h3 class="page-title"> Blank Page Layout
+                    <small>blank page layout</small>
+                </h3>
+                <!-- END PAGE TITLE-->
+                <!-- END PAGE HEADER-->
+                <div class="note note-info">
+                    <p> A black page template with a minimal dependency assets to use as a base for any custom page you create </p>
+                </div>
+            </div>
+            <!-- END CONTENT BODY -->
+        </div>
+        <!-- END CONTENT -->
+
     </div>
     <!-- END CONTAINER -->
-    <%@ include file="shared/importJs.jsp"%>
+
+    <%@ include file="shared/footer.jsp"%>
     <!-- BEGIN PAGE LEVEL PLUGINS -->
 
     <!-- END PAGE LEVEL PLUGINS -->

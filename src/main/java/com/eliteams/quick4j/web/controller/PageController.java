@@ -53,4 +53,13 @@ public class PageController {
         return "500";
     }
 
+    /**
+     * demo页
+     * @return
+     */
+    @RequestMapping("/demo")
+    public String showDemo() {
+        return "template";
+    }
+
 }
