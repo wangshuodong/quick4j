@@ -35,6 +35,7 @@ page-sidebar-closed 隐藏菜单栏
 page-container-bg-solid 背景颜色
 -->
 <body class="page-header-fixed page-header-fixed-mobile page-sidebar-closed-hide-logo page-content-white page-container-bg-solid">
+<%--<body class="page-header-fixed page-sidebar-closed-hide-logo">--%>
 
     <%@ include file="shared/pageHeader.jsp"%>
 
@@ -54,15 +55,26 @@ page-container-bg-solid 背景颜色
             <!-- BEGIN CONTENT BODY -->
             <div class="page-content">
                 <!-- BEGIN PAGE HEADER-->
-                <!-- BEGIN PAGE TITLE-->
-                <h3 class="page-title"> Blank Page Layout
-                    <small>blank page layout</small>
-                </h3>
-                <!-- END PAGE TITLE-->
-                <!-- END PAGE HEADER-->
-                <div class="note note-info">
-                    <p> A black page template with a minimal dependency assets to use as a base for any custom page you create </p>
+
+                <!-- BEGIN PAGE BAR -->
+                <div class="page-bar">
+                    <ul class="page-breadcrumb">
+                        <li>
+                            <a href="index.html">主页</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="#">测试</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <span>demo页面</span>
+                        </li>
+                    </ul>
                 </div>
+                <!-- END PAGE BAR -->
+
+                <div id="main-content"></div>
             </div>
             <!-- END CONTENT BODY -->
         </div>
@@ -73,7 +85,7 @@ page-container-bg-solid 背景颜色
 
     <%@ include file="shared/footer.jsp"%>
     <!-- BEGIN PAGE LEVEL PLUGINS -->
-
+    <script src="app/js/index.js" type="text/javascript"></script>
     <!-- END PAGE LEVEL PLUGINS -->
 </body>
 </html>
