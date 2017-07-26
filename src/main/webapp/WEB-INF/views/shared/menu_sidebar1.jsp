@@ -24,7 +24,7 @@
             </li>
             <!-- DOC: To remove the search box from the sidebar you just need to completely remove the below "sidebar-search-wrapper" LI element -->
             <li class="nav-item start active open" id="btn-dashboard">
-                <a href="/rest/page/dashboard" class="nav-link nav-toggle">
+                <a href="${pageContext.request.contextPath}/rest/page/dashboard" class="nav-link nav-toggle">
                     <i class="icon-home"></i>
                     <span class="title">欢迎使用</span>
                     <%--<span class="selected"></span>--%>
@@ -149,7 +149,7 @@
     <!-- END SIDEBAR -->
 </div>
 <!-- END SIDEBAR 侧边栏包含快速搜索和主要的导航菜单。-->
-<script src="/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
 <script type="application/javascript">
     $(function () {
         $('#page-sidebar-menu > li').click(function(e) {
