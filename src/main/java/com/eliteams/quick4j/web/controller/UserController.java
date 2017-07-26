@@ -26,9 +26,7 @@ import javax.validation.Valid;
 
 /**
  * 用户控制器
- * 
- * @author StarZou
- * @since 2014年5月28日 下午3:54:00
+ *
  **/
 @Controller
 @RequestMapping(value = "/user")

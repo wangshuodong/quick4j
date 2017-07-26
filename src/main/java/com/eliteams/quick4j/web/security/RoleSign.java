@@ -11,9 +11,7 @@ package com.eliteams.quick4j.web.security;
  *     return &quot;拥有admin角色,能访问&quot;;
  * }
  * </pre>
- * 
- * @author StarZou
- * @since 2014年6月17日 下午3:58:51
+ *
  **/
 public class RoleSign {
 

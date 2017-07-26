@@ -1,16 +1,16 @@
 package com.eliteams.quick4j.core.feature.orm.mybatis;
 
+import org.apache.ibatis.session.RowBounds;
+
 import java.util.ArrayList;
 import java.util.List;
-import org.apache.ibatis.session.RowBounds;
 
 /**
  * Mybatis分页参数及查询结果封装. 注意所有序号从1开始.
  * 
  * @param <T>
- *            Page中记录的类型.
- * @author StarZou
- * @since 2014年5月18日 下午1:34:32
+ * Page中记录的类型.
+ *
  **/
 public class Page<T> extends RowBounds {
     // --分页参数 --//

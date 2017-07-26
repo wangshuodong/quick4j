@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.eliteams.quick4j.web.dao.AuthorityMapper" >
+  <resultMap id="BaseResultMap" type="com.eliteams.quick4j.web.model.Authority" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="version" property="version" jdbcType="INTEGER" />
+    <result column="enable" property="enable" jdbcType="BIT" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="levelCode" property="levelcode" jdbcType="VARCHAR" />
+    <result column="position" property="position" jdbcType="INTEGER" />
+    <result column="theValue" property="thevalue" jdbcType="VARCHAR" />
+    <result column="url" property="url" jdbcType="VARCHAR" />
+    <result column="matchUrl" property="matchurl" jdbcType="VARCHAR" />
+    <result column="itemIcon" property="itemicon" jdbcType="VARCHAR" />
+    <result column="parentId" property="parentid" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, version, enable, name, levelCode, position, theValue, url, matchUrl, itemIcon, 
+    parentId
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.eliteams.quick4j.web.model.AuthorityExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from authority
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from authority
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from authority
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.eliteams.quick4j.web.model.AuthorityExample" >
+    delete from authority
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.eliteams.quick4j.web.model.Authority" >
+    insert into authority (id, version, enable, 
+      name, levelCode, position, 
+      theValue, url, matchUrl, 
+      itemIcon, parentId)
+    values (#{id,jdbcType=INTEGER}, #{version,jdbcType=INTEGER}, #{enable,jdbcType=BIT}, 
+      #{name,jdbcType=VARCHAR}, #{levelcode,jdbcType=VARCHAR}, #{position,jdbcType=INTEGER}, 
+      #{thevalue,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, #{matchurl,jdbcType=VARCHAR}, 
+      #{itemicon,jdbcType=VARCHAR}, #{parentid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.eliteams.quick4j.web.model.Authority" >
+    insert into authority
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="version != null" >
+        version,
+      </if>
+      <if test="enable != null" >
+        enable,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="levelcode != null" >
+        levelCode,
+      </if>
+      <if test="position != null" >
+        position,
+      </if>
+      <if test="thevalue != null" >
+        theValue,
+      </if>
+      <if test="url != null" >
+        url,
+      </if>
+      <if test="matchurl != null" >
+        matchUrl,
+      </if>
+      <if test="itemicon != null" >
+        itemIcon,
+      </if>
+      <if test="parentid != null" >
+        parentId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="version != null" >
+        #{version,jdbcType=INTEGER},
+      </if>
+      <if test="enable != null" >
+        #{enable,jdbcType=BIT},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="levelcode != null" >
+        #{levelcode,jdbcType=VARCHAR},
+      </if>
+      <if test="position != null" >
+        #{position,jdbcType=INTEGER},
+      </if>
+      <if test="thevalue != null" >
+        #{thevalue,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null" >
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="matchurl != null" >
+        #{matchurl,jdbcType=VARCHAR},
+      </if>
+      <if test="itemicon != null" >
+        #{itemicon,jdbcType=VARCHAR},
+      </if>
+      <if test="parentid != null" >
+        #{parentid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.eliteams.quick4j.web.model.AuthorityExample" resultType="java.lang.Integer" >
+    select count(*) from authority
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update authority
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.version != null" >
+        version = #{record.version,jdbcType=INTEGER},
+      </if>
+      <if test="record.enable != null" >
+        enable = #{record.enable,jdbcType=BIT},
+      </if>
+      <if test="record.name != null" >
+        name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.levelcode != null" >
+        levelCode = #{record.levelcode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.position != null" >
+        position = #{record.position,jdbcType=INTEGER},
+      </if>
+      <if test="record.thevalue != null" >
+        theValue = #{record.thevalue,jdbcType=VARCHAR},
+      </if>
+      <if test="record.url != null" >
+        url = #{record.url,jdbcType=VARCHAR},
+      </if>
+      <if test="record.matchurl != null" >
+        matchUrl = #{record.matchurl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.itemicon != null" >
+        itemIcon = #{record.itemicon,jdbcType=VARCHAR},
+      </if>
+      <if test="record.parentid != null" >
+        parentId = #{record.parentid,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update authority
+    set id = #{record.id,jdbcType=INTEGER},
+      version = #{record.version,jdbcType=INTEGER},
+      enable = #{record.enable,jdbcType=BIT},
+      name = #{record.name,jdbcType=VARCHAR},
+      levelCode = #{record.levelcode,jdbcType=VARCHAR},
+      position = #{record.position,jdbcType=INTEGER},
+      theValue = #{record.thevalue,jdbcType=VARCHAR},
+      url = #{record.url,jdbcType=VARCHAR},
+      matchUrl = #{record.matchurl,jdbcType=VARCHAR},
+      itemIcon = #{record.itemicon,jdbcType=VARCHAR},
+      parentId = #{record.parentid,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.eliteams.quick4j.web.model.Authority" >
+    update authority
+    <set >
+      <if test="version != null" >
+        version = #{version,jdbcType=INTEGER},
+      </if>
+      <if test="enable != null" >
+        enable = #{enable,jdbcType=BIT},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="levelcode != null" >
+        levelCode = #{levelcode,jdbcType=VARCHAR},
+      </if>
+      <if test="position != null" >
+        position = #{position,jdbcType=INTEGER},
+      </if>
+      <if test="thevalue != null" >
+        theValue = #{thevalue,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null" >
+        url = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="matchurl != null" >
+        matchUrl = #{matchurl,jdbcType=VARCHAR},
+      </if>
+      <if test="itemicon != null" >
+        itemIcon = #{itemicon,jdbcType=VARCHAR},
+      </if>
+      <if test="parentid != null" >
+        parentId = #{parentid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.eliteams.quick4j.web.model.Authority" >
+    update authority
+    set version = #{version,jdbcType=INTEGER},
+      enable = #{enable,jdbcType=BIT},
+      name = #{name,jdbcType=VARCHAR},
+      levelCode = #{levelcode,jdbcType=VARCHAR},
+      position = #{position,jdbcType=INTEGER},
+      theValue = #{thevalue,jdbcType=VARCHAR},
+      url = #{url,jdbcType=VARCHAR},
+      matchUrl = #{matchurl,jdbcType=VARCHAR},
+      itemIcon = #{itemicon,jdbcType=VARCHAR},
+      parentId = #{parentid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

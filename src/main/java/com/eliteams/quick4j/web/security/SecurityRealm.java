@@ -21,9 +21,7 @@ import java.util.List;
 
 /**
  * 用户身份验证,授权 Realm 组件
- * 
- * @author StarZou
- * @since 2014年6月11日 上午11:35:28
+ *
  **/
 @Component(value = "securityRealm")
 public class SecurityRealm extends AuthorizingRealm {

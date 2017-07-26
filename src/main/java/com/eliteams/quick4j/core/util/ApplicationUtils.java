@@ -1,14 +1,12 @@
 package com.eliteams.quick4j.core.util;
 
-import java.util.UUID;
-
 import org.apache.commons.codec.digest.DigestUtils;
+
+import java.util.UUID;
 
 /**
  * ApplicationUtils : 程序工具类，提供大量的便捷方法
  *
- * @author StarZou
- * @since 2014-09-28 22:31
  */
 public class ApplicationUtils {
 

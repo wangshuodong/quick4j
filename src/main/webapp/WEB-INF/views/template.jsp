@@ -47,7 +47,7 @@ page-container-bg-solid 背景颜色
     <div class="page-container">
 
         <!-- BEGIN SIDEBAR 侧边栏包含快速搜索和主要的导航菜单。-->
-        <%@ include file="shared/menu_sidebar.jsp"%>
+        <%@ include file="shared/menu_sidebar1.jsp"%>
         <!-- END SIDEBAR 侧边栏包含快速搜索和主要的导航菜单。-->
 
         <!-- BEGIN CONTENT -->
@@ -85,7 +85,7 @@ page-container-bg-solid 背景颜色
 
     <%@ include file="shared/footer.jsp"%>
     <!-- BEGIN PAGE LEVEL PLUGINS -->
-    <script src="app/js/index.js" type="text/javascript"></script>
     <!-- END PAGE LEVEL PLUGINS -->
+
 </body>
 </html>

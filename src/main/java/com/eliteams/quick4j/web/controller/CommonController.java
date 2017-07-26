@@ -7,9 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  * 公共视图控制器
- * 
- * @author starzou
- * @since 2014年4月15日 下午4:16:34
+ *
  **/
 @Controller
 public class CommonController {
