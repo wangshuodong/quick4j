@@ -10,6 +10,14 @@ body {
 .page-lock {
   margin: 90px auto 30px auto;
   width: 450px; }
+  .page-lock .lock-cont {
+    display: table;
+    table-layout: fixed; }
+    .page-lock .lock-cont .lock-item {
+      display: table-cell;
+      vertical-align: middle; }
+      .page-lock .lock-cont .lock-item .lock-item-full {
+        width: 100%; }
 
 .page-lock .page-logo {
   text-align: center;
@@ -59,7 +67,8 @@ body {
   margin-top: 0px;
   color: #dbe2ea;
   font-size: 18px;
-  font-weight: 400; }
+  font-weight: 400;
+  display: inline-block; }
 
 .lock-form .form-group {
   margin-top: 20px; }
@@ -119,31 +128,15 @@ body {
 
 @media (max-width: 768px) {
   .page-lock {
-    margin: 100px auto; } }
-
-@media (max-width: 560px) {
-  .page-lock {
-    margin: 50px auto;
-    width: 400px; }
-  .lock-body {
-    margin: 30px; }
-  .lock-avatar {
-    width: 120px;
-    height: 120px;
-    margin-top: 20px; }
-  .lock-form h4 {
-    font-size: 16px; }
-  .lock-form .form-group .form-control {
-    padding: 20px 20px;
-    width: 170px; }
-  .lock-form .form-actions .btn-success {
-    width: 170px;
-    margin-bottom: 10px; } }
-
-@media (max-width: 420px) {
-  .page-lock {
     margin: 30px auto;
     width: 280px; }
+    .page-lock .lock-cont {
+      display: block; }
+      .page-lock .lock-cont .lock-item {
+        display: block;
+        text-align: center; }
+        .page-lock .lock-cont .lock-item .lock-item-full {
+          width: 100%; }
   .lock-body {
     margin: 0px; }
   .page-lock .page-body {
@@ -163,6 +156,6 @@ body {
   .lock-form .form-group .form-control {
     padding: 20px 20px;
     width: 240px; }
-  .lock-form .form-actions .btn-success {
-    width: 240px;
+  .lock-form .form-actions .btn {
+    width: 100%;
     margin-bottom: 20px; } }

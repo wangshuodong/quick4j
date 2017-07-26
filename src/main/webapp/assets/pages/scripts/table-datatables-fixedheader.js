@@ -8,8 +8,14 @@ var TableDatatablesFixedHeader = function () {
             if ($('.page-header').hasClass('page-header-fixed-mobile')) {
                 fixedHeaderOffset = $('.page-header').outerHeight(true);
             } 
+        } else if ($('body').hasClass('page-header-menu-fixed')) { // admin 3 fixed header menu mode
+            fixedHeaderOffset = $('.page-header-menu').outerHeight(true);
+        } else if ($('body').hasClass('page-header-top-fixed')) { // admin 3 fixed header top mode
+            fixedHeaderOffset = $('.page-header-top').outerHeight(true);
         } else if ($('.page-header').hasClass('navbar-fixed-top')) {
             fixedHeaderOffset = $('.page-header').outerHeight(true);
+        } else if ($('body').hasClass('page-header-fixed')) {
+            fixedHeaderOffset = 64; // admin 5 fixed height
         }
 
         var oTable = table.dataTable({
@@ -68,6 +74,8 @@ var TableDatatablesFixedHeader = function () {
             } 
         } else if ($('.page-header').hasClass('navbar-fixed-top')) {
             fixedHeaderOffset = $('.page-header').outerHeight(true);
+        } else if ($('body').hasClass('page-header-fixed')) {
+            fixedHeaderOffset = 64; // admin 5 fixed height
         }
 
         var oTable = table.dataTable({
