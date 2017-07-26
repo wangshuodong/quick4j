@@ -1,5 +1,6 @@
 package com.eliteams.quick4j.web.service.impl;
 
+import com.eliteams.quick4j.core.feature.orm.mybatis.Page;
 import com.eliteams.quick4j.core.generic.GenericDao;
 import com.eliteams.quick4j.core.generic.GenericServiceImpl;
 import com.eliteams.quick4j.web.dao.UserMapper;
@@ -37,6 +38,11 @@ public class UserServiceImpl extends GenericServiceImpl<User, Long> implements U
         example.createCriteria().andUsernameEqualTo(username);
         final List<User> list = userMapper.selectByExample(example);
         return list.get(0);
+    }
+
+    @Override
+    public List<User> selectByExampleAndPage(User user, Page<User> page) {
+        return null;
     }
 
 }
