@@ -1,8 +1,10 @@
 package com.eliteams.quick4j.web.controller;
 
+import com.eliteams.quick4j.web.model.Authority;
 import com.eliteams.quick4j.web.model.User;
 import com.eliteams.quick4j.web.security.PermissionSign;
 import com.eliteams.quick4j.web.security.RoleSign;
+import com.eliteams.quick4j.web.service.AuthorityService;
 import com.eliteams.quick4j.web.service.UserService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
@@ -10,6 +12,7 @@ import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.apache.shiro.subject.Subject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -21,6 +24,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.util.List;
 
 /**
  * 用户控制器
@@ -32,6 +36,8 @@ public class UserController {
 
     @Resource
     private UserService userService;
+    @Autowired
+    AuthorityService authorityService;
 
     /**
      * 用户登录
@@ -56,8 +62,10 @@ public class UserController {
             subject.login(new UsernamePasswordToken(user.getUsername(), user.getPassword()));
             // 验证成功在Session中保存用户信息
             final User authUserInfo = userService.selectByUsername(user.getUsername());
-            //final Authority enum = ;
+
+            final List<Authority> list = authorityService.selectAllList();;
             request.getSession().setAttribute("userInfo", authUserInfo);
+            request.getSession().setAttribute("menuList", list);
         } catch (AuthenticationException e) {
             // 身份验证失败
             model.addAttribute("error", "用户名或密码错误 ！");

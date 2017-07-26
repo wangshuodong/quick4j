@@ -11,7 +11,7 @@
       <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
    </li>
    
-   <c:forEach items="${sessionScope.accountAuth.accountRole.authorityMenus}" var="item" varStatus="status">
+   <c:forEach items="${sessionScope.menuList}" var="item" varStatus="status">
    		<c:choose>  
         <c:when test="${status.first}">
             <c:choose>  

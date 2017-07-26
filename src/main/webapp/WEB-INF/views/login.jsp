@@ -53,15 +53,15 @@ License: You must have a valid license purchased only from themeforest(the above
 		<h3 class="form-title font-green">用户登录</h3>
 		<div class="alert alert-danger display-hide">
 			<button class="close" data-close="alert"></button>
-			<span> Enter any username and password. </span>
+			<span> 请输入用户名和密码. </span>
 		</div>
 		<div class="form-group">
 			<!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
 			<label class="control-label visible-ie8 visible-ie9">Username</label>
-			<input class="form-control form-control-solid placeholder-no-fix" type="text" autocomplete="off" placeholder="Username" name="username" /> </div>
+			<input class="form-control form-control-solid placeholder-no-fix" type="text" autocomplete="off" placeholder="用户名" name="username" /> </div>
 		<div class="form-group">
 			<label class="control-label visible-ie8 visible-ie9">Password</label>
-			<input class="form-control form-control-solid placeholder-no-fix" type="password" autocomplete="off" placeholder="Password" name="password" /> </div>
+			<input class="form-control form-control-solid placeholder-no-fix" type="password" autocomplete="off" placeholder="密码" name="password" /> </div>
 		<div class="form-actions">
 			<button type="submit" class="btn green uppercase">登 录</button>
 			<label class="rememberme check mt-checkbox mt-checkbox-outline">
