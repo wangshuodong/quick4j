@@ -1,5 +1,6 @@
 package com.eliteams.quick4j.web.model;
 
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 public class User {
@@ -29,6 +30,7 @@ public class User {
         this.username = username == null ? null : username.trim();
     }
 
+    @Size(min=6,max=10,message="密码的长度应该在1和10之间")
     public String getPassword() {
         return password;
     }

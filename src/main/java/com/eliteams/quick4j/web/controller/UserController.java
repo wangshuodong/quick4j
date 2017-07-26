@@ -56,6 +56,7 @@ public class UserController {
             subject.login(new UsernamePasswordToken(user.getUsername(), user.getPassword()));
             // 验证成功在Session中保存用户信息
             final User authUserInfo = userService.selectByUsername(user.getUsername());
+            //final Authority enum = ;
             request.getSession().setAttribute("userInfo", authUserInfo);
         } catch (AuthenticationException e) {
             // 身份验证失败

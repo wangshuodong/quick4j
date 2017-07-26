@@ -34,7 +34,7 @@ page-container-bg-solid 背景颜色
         <div class="page-container">
 
             <!-- BEGIN SIDEBAR 侧边栏包含快速搜索和主要的导航菜单。-->
-            <%@ include file="shared/menu_sidebar1.jsp"%>
+            <%@ include file="shared/menu_sidebar.jsp"%>
             <!-- END SIDEBAR 侧边栏包含快速搜索和主要的导航菜单。-->
 
             <!-- BEGIN CONTENT -->

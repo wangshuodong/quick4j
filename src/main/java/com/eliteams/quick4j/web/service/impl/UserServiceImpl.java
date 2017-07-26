@@ -22,33 +22,13 @@ public class UserServiceImpl extends GenericServiceImpl<User, Long> implements U
     private UserMapper userMapper;
 
     @Override
-    public int insert(User model) {
-        return userMapper.insertSelective(model);
-    }
-
-    @Override
-    public int update(User model) {
-        return userMapper.updateByPrimaryKeySelective(model);
-    }
-
-    @Override
-    public int delete(Long id) {
-        return userMapper.deleteByPrimaryKey(id);
+    public GenericDao<User, Long> getDao() {
+        return userMapper;
     }
 
     @Override
     public User authentication(User user) {
         return userMapper.authentication(user);
-    }
-
-    @Override
-    public User selectById(Long id) {
-        return userMapper.selectByPrimaryKey(id);
-    }
-
-    @Override
-    public GenericDao<User, Long> getDao() {
-        return userMapper;
     }
 
     @Override
