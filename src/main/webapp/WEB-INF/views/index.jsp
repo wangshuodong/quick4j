@@ -34,7 +34,7 @@ page-container-bg-solid 背景颜色
         <div class="page-container">
 
             <!-- BEGIN SIDEBAR 侧边栏包含快速搜索和主要的导航菜单。-->
-            <%@ include file="shared/menu_sidebar.jsp"%>
+            <%@ include file="shared/menu_sidebar1.jsp"%>
             <!-- END SIDEBAR 侧边栏包含快速搜索和主要的导航菜单。-->
 
             <!-- BEGIN CONTENT -->
@@ -68,12 +68,27 @@ page-container-bg-solid 背景颜色
     <!-- BEGIN PAGE LEVEL PLUGINS -->
     <!-- END PAGE LEVEL PLUGINS -->
     <script>
-        $(document).ready(function()
-        {
+        $(document).ready(function() {
+
             $('#clickmewow').click(function()
             {
                 $('#radio1003').attr('checked', 'checked');
             });
+
+            $('#page-sidebar-menu li ul a').click(function(e) {
+                e.preventDefault();
+                var url = this.href;
+                var menuContainer = $('.page-sidebar ul');
+                $('#page-sidebar-menu li.active').removeClass('active');
+                $(this).parents('li').addClass('active');
+
+                if (url != null && url != 'javascript:;') {
+                    $.get(url, function(data) {
+                        $('#main-content').html(data);
+                    });
+                }
+            });
+            $('#btn-dashboard').trigger("click");
         })
     </script>
 </body>

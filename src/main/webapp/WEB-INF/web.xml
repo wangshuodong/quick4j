@@ -102,4 +102,8 @@
         <location>/rest/page/401</location>
     </error-page>
 
+    <session-config>
+        <session-timeout>15</session-timeout>
+    </session-config>
+
 </web-app>
