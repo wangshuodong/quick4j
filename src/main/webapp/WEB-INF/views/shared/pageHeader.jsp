@@ -139,11 +139,11 @@
                   </li>
                   <li class="divider"></li>
                   <li>
-                     <a href="page_user_lock_1.html">
+                     <a href="${pageContext.request.contextPath}/rest/user/userLock">
                         <i class="icon-lock"></i> 锁屏 </a>
                   </li>
                   <li>
-                     <a href="page_user_login_1.html">
+                     <a href="${pageContext.request.contextPath}/rest/user/logout">
                         <i class="icon-key"></i> 退出 </a>
                   </li>
                </ul>

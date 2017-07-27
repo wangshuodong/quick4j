@@ -2,6 +2,7 @@ package com.eliteams.quick4j.web.controller;
 
 import com.eliteams.quick4j.web.model.Authority;
 import com.eliteams.quick4j.web.model.User;
+import com.eliteams.quick4j.web.modelCustom.UserCustom;
 import com.eliteams.quick4j.web.security.PermissionSign;
 import com.eliteams.quick4j.web.security.RoleSign;
 import com.eliteams.quick4j.web.service.AuthorityService;
@@ -47,7 +48,14 @@ public class UserController {
      * @return
      */
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String login(@Valid User user, BindingResult result, Model model, HttpServletRequest request) {
+    public String login(@Valid UserCustom user, BindingResult result, Model model, HttpServletRequest request) {
+        String returnUrl;
+        if (user.getLoginType() != null && "lock".equals(user.getLoginType())) {
+            model.addAttribute("username", user.getUsername());
+            returnUrl = "user_lock";
+        }else {
+            returnUrl = "login";
+        }
         try {
             Subject subject = SecurityUtils.getSubject();
             // 已登陆则 跳到首页
@@ -56,7 +64,7 @@ public class UserController {
             }
             if (result.hasErrors()) {
                 model.addAttribute("error", "参数错误！");
-                return "login";
+                return returnUrl;
             }
             // 身份验证
             subject.login(new UsernamePasswordToken(user.getUsername(), user.getPassword()));
@@ -69,7 +77,7 @@ public class UserController {
         } catch (AuthenticationException e) {
             // 身份验证失败
             model.addAttribute("error", "用户名或密码错误 ！");
-            return "login";
+            return returnUrl;
         }
         return "redirect:/";
     }
@@ -87,6 +95,23 @@ public class UserController {
         Subject subject = SecurityUtils.getSubject();
         subject.logout();
         return "login";
+    }
+
+    /**
+     * 用户锁屏
+     * @param session
+     * @param model
+     * @return
+     */
+    @RequestMapping(value = "/userLock", method = RequestMethod.GET)
+    public String userLock(HttpSession session, Model model) {
+        User user = (User)session.getAttribute("userInfo");
+        model.addAttribute("username", user.getUsername());
+        session.removeAttribute("userInfo");
+        // 登出操作
+        Subject subject = SecurityUtils.getSubject();
+        subject.logout();
+        return "user_lock";
     }
 
     /**
