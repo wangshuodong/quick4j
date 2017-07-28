@@ -11,6 +11,7 @@
         <property name="securityManager" ref="securityManager"/>
         <property name="loginUrl" value="/rest/page/login"/>
         <property name="successUrl" value="/rest/index"/>
+        <!-- 没有权限默认跳转的页面 -->
         <property name="unauthorizedUrl" value="/rest/page/401"/>
         <property name="filterChainDefinitions">
             <value>
