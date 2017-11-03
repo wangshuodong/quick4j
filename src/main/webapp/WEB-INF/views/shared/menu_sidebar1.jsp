@@ -25,13 +25,13 @@
 			<li class="nav-item start active">
 				<a href=javascript:;"" class="nav-link nav-toggle">
 					<i class="icon-home"></i>
-					<span class="title">欢迎使用</span>
+					<span class="title">数据管理</span>
 					<span class="selected"></span>
 				</a>
 				<ul class="sub-menu">
 					<li class="nav-item start active">
 						<a href="${pageContext.request.contextPath}/rest/page/dashboard" class="nav-link " id="btn-dashboard">
-							<span class="title">我的桌面</span>
+							<span class="title">数据中心</span>
 						</a>
 					</li>
 				</ul>
@@ -147,6 +147,25 @@
 					</li>
 				</ul>
 			</li>
+			<!-- 测试权限控制 -->
+			<shiro:hasAnyRoles name="super_admin">
+				<li>
+					<a href="javascript:;">super_admin 拥有此角色</a>
+				</li>
+			</shiro:hasAnyRoles>
+
+			<shiro:hasPermission name="user:create">
+				<li>
+					<a href="javascript:;">user:create 拥有此权限</a>
+				</li>
+			</shiro:hasPermission>
+
+			<shiro:hasPermission name="user:update">
+				<li>
+					<a href="javascript:;">user:update 拥有此权限</a>
+				</li>
+			</shiro:hasPermission>
+
 		</ul>
 		<!-- END SIDEBAR MENU -->
 		<!-- END SIDEBAR MENU -->

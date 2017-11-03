@@ -149,7 +149,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <script src="${pageContext.request.contextPath}/assets/global/plugins/select2/js/select2.full.min.js" type="text/javascript"></script>
 <!-- END PAGE LEVEL PLUGINS -->
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
-<script src="${pageContext.request.contextPath}/assets/pages/scripts/login.min.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/assets/pages/scripts/login.js" type="text/javascript"></script>
 <!-- END PAGE LEVEL SCRIPTS -->
 <script>
     $(document).ready(function()

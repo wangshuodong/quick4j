@@ -60,9 +60,5 @@ public class PageController {
         return "template";
     }
 
-    @RequestMapping("/index")
-    public String showindex() {
-        return "index";
-    }
 
 }
